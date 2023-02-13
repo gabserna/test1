@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <script>
+        function tipToAdd(){
+            //get food bill amount
+            const bill = Number(
+                document.querySelector('input=[name"food-bill"]').value
+            );
+            //get desired percentage to add
+            const percentage = Number (
+                document.querySelector('input=[name="adding-tip"]').value
+            );
+            //calculate amount to add
+            const calculateTip = document.querySelector(".tip-amount");
+            //show amount 
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <input type="number" placeholder="bill" id="bill">
+    <input type="number" placeholder="percentage" id="percentage">
+    <button onclick="tipToAdd">Calculate</button>
+    <div id="tip-ammount"></div>
+</body>
+</html>
