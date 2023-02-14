@@ -73,3 +73,47 @@
     <div class="message"></div>
   </body>
 </html>
+
+
+
+
+
+
+<script>
+    function palindrome(str) {
+  // Step 1. Lowercase the string and use the RegExp to remove unwanted characters from it
+  const re = /[\W_]/g; // or var re = /[^A-Za-z0-9]/g;
+  
+  const lowRegStr = str.toLowerCase().replace(re, '');
+  // str.toLowerCase() = "A man, a plan, a canal. Panama".toLowerCase() = "a man, a plan, a canal. panama"
+  // str.replace(/[\W_]/g, '') = "a man, a plan, a canal. panama".replace(/[\W_]/g, '') = "amanaplanacanalpanama"
+  // var lowRegStr = "amanaplanacanalpanama";
+     
+  // Step 2. Use the same chaining methods with built-in functions from the previous article 'Three Ways to Reverse a String in JavaScript'
+  const reverseStr = lowRegStr.split('').reverse().join(''); 
+   
+  // Step 3. Check if reverseStr is strictly equals to lowRegStr and return a Boolean
+  return reverseStr === lowRegStr; // "amanaplanacanalpanama" === "amanaplanacanalpanama"? => true
+}
+ 
+palindrome("A man, a plan, a canal. Panama");
+
+
+
+
+
+
+//Check for Palindromes With a FOR loop
+function palindrome(str) {
+ var re = /[^A-Za-z0-9]/g;
+ str = str.toLowerCase().replace(re, '');
+ var len = str.length;
+ for (var i = 0; i < len/2; i++) {
+   if (str[i] !== str[len - 1 - i]) {
+       return false;
+   }
+ }
+ return true;
+}
+palindrome("A man, a plan, a canal. Panama");
+</script>
