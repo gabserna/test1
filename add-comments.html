@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+    
+    
+    <script>
+      let comments = [];
+    
+      function onPageLoad() {
+        // add button listener
+        makeButtonWork();
+      }
+    
+      function makeButtonWork() {
+        const buttonElement = document.querySelector("button");
+    
+        buttonElement.addEventListener("click", handleOnClick);
+      }
+    
+      function handleOnClick() {
+        // grab the input for the username
+        const username = document.querySelector("input").value;
+        // grab the input for the text area
+        const comment = document.querySelector("textarea").value;
+        // then display
+        addNewComment(username, comment);
+      }
+    
+      function addNewComment(username, comment) {
+        comments.push({
+          username,
+          comment,
+        });
+    
+        renderComments();
+      }
+    
+      function renderComments() {
+        const commentsElement = document.querySelector(".comments");
+        let newInnerHTML = "";
+        comments.forEach((commentItem) => {
+          const { username, comment } = commentItem;
+          newInnerHTML += `<li>${username} -\n${comment}</li>`;
+        });
+    
+        commentsElement.innerHTML = newInnerHTML;
+      }
+    
+      window.onload = onPageLoad;
+    </script>
+
+    <style>
+      * {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+        .container {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+        }
+        button {
+            width: 20%;
+        }
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Comments</h1>
+        <input type="text" placeholder="username">
+        <textarea style="resize: none;" placeholder="your comment here"></textarea>
+        <button>Submit</button>
+        <section>
+            <ul class="comments"></ul>
+        </section>
+    </div>
+</body>
+</html>
+
+<!--
+
+
+-->
