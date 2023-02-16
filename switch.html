@@ -1,0 +1,97 @@
+<head>
+    <script>
+    /* 
+    //switch      
+      function clasificarValor(valor) {
+        let respuesta;
+
+        switch(valor) {
+          case 1:
+            respuesta = "alpha"
+            break;
+          case 2:
+            respuesta = "beta"
+          break;
+          case 3:
+            respuesta = "gamma"
+          break;
+          case 4:
+            respuesta = "delta"
+          break;
+        }
+        return respuesta;
+      }
+      console.log(clasificarValor(4));
+      
+      
+      let producto = "helado";  //cambiar valores para ver la funcion
+      
+      switch(producto) {
+        case "pizza":
+          console.log("pizza $10.55");
+          break;
+          case "hamburguesa":
+            console.log("hamburguesa $6.78");
+            break;
+            case "helado":
+              console.log("helado $2.88");
+              break;
+            }
+            
+            //opcion predeterminada (default)
+            function selectIdioma(valor) {
+              let idioma;
+              switch (valor) {
+                case 1:
+                  idioma = "Español";
+                  break;
+                  case 2:
+              idioma = "Frances";
+            break;
+            case 3:
+              idioma = "Italiano";
+              break;
+              
+              default:   //opcion predeterminada
+              idioma = "Ingles";
+              break;
+            }
+            return idioma;
+          }
+          console.log(selectIdioma(5))
+          */
+          
+
+      //casos multiples
+      /*Curso de freeCodeCamp: "Aprende JavaScript - Curso Completo desde Cero".
+Curso Creado por: Estefania Cassingena Navone (@EstefaniaCassN).
+Tema: Sentencias switch: múltiples casos.
+*/
+
+function clasificarVolumen(valor) {
+  var volumen;
+  switch (valor) {
+    case 1:
+      volumen = "bajo";
+      break;
+    case 2:
+    case 3:
+      volumen = "intermedio";
+      break;
+    case 4:
+    case 5:
+    case 6:
+      volumen = "alto";
+      break;
+  } 
+  return volumen;
+}
+
+console.log(clasificarVolumen(5));
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>

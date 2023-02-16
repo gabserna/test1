@@ -1,0 +1,27 @@
+<head>
+  <script>
+// Early return pattern
+
+function miFuncion() {
+  console.log("Hola");
+  return "Mundo";    // se detiene la funcion despues de return (al cumplirse)
+  console.log("Adiós");
+}
+
+console.log(miFuncion());
+
+function calcularRaizCuadrada(num) {
+  if (num < 0) {
+    return undefined;  // se detiene la funcion despues de return (al cumplirse)
+  } 
+  return Math.sqrt(num);
+}
+
+console.log(calcularRaizCuadrada(25));
+console.log(calcularRaizCuadrada(-5)); // no se calcula sqrt para num negativos
+
+  </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <title>Flamingo</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+        .mainContainer {
+            width: 600px;
+            height: 600px;
+            position: relative;
+            border: 2px solid #fff;
+        }
+        img {
+            width: 10%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id ="mainContainer">
+        <img id="flamingo" src="flamingo2.jpg" alt="pink flamingo">
+        </div>
+</body>
+<script defer>
+    var frames = 0;
+    var mybox = document.getElementById('flamingo');
+    elbucle();
+
+    function elbucle() {
+        actualiza();
+        window.requestAnimationFrame(elbucle);
+    }
+    function actualiza() {
+        frames += 3;
+        mybox.style.bottom= frames + 'px';
+        mybox.style.left= frames + 'px';
+    }
+</script>
+</html>

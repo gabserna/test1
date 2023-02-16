@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculator</title>
+    <style>
+        body,
+        html {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #root {
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgb(29, 28, 27);
+            overflow: hidden;
+            min-height: 540px;
+            width: 282px;
+            border-radius: 50px;
+            outline: 1.5px outset rgb(228, 224, 224);
+            outline-offset: -3px;
+            margin-top: -15px;
+            margin-bottom: 10px;
+        }
+
+        .display {
+            color: white;
+            height: 75px;
+            margin-top: -20px;
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            height: 75px;
+        }
+
+        #number {
+            font-size: 55px;
+            position: absolute;
+            padding-right: 22px;
+        }
+
+
+        .formula {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            height: 60px;
+            padding-right: 22px;
+            margin-top: -40px;
+        }
+
+        #previous {
+            height:inherit;
+            font-size: 22px;
+            color: rgba(214, 211, 211, 0.56);
+            padding-right: 22px;
+        }
+
+        .nothing {
+            height: 88px;
+        }
+
+
+        /*buttons*/
+        .btnsContainer {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 5px;
+        }
+
+        .btns {
+            padding: 5px;
+            width: 96%;
+            height: 100%;
+            margin-left: 2%;
+            margin-right: 2%;
+            text-align: center;
+            bottom: 0;
+        }
+
+        .cal-btns {
+            background-color: transparent;
+            border: none;
+            color: white;
+            height: 50px;
+            border-radius: 100px;
+            margin: 5px;
+            font-weight: bold;
+            font-size: 1.3em;
+            width: 50px;
+            bottom: 0;
+        }
+
+
+        .special {
+            width: 90%;
+            margin: 0 5% 0 5%;
+            text-align: left;
+            padding-left: 19.5px;
+        }
+
+        .gray {
+            background-color: rgb(156, 155, 155);
+            color: black;
+            transition: all ease-in-out 0.02s;
+        }
+
+        .gray:active {
+            outline: 3.8px solid rgba(165, 163, 163, 0.473);
+        }
+
+        .dgray {
+            background-color: rgba(59, 59, 59, 0.895);
+            transition: all ease-in-out 0.02s;
+        }
+
+        .dgray:active {
+            outline: 3.8px solid rgba(139, 137, 137, 0.895);
+        }
+
+        .org {
+            background-color: orange;
+            transition: all ease-in-out 0.02s;
+        }
+
+        .org:active {
+            outline: 3.8px solid rgba(251, 200, 105, 0.545);
+        }
+
+        .footer {
+            text-align: center;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            padding: 5px;
+            font-family: system-ui;
+            background-color: black;
+        }
+
+        .footer>p {
+            background: linear-gradient(to right, #9BCFA0 1%, #E0D5DA 72%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+
+
+        #icon1,
+        #icon2 {
+            background-color: transparent;
+            border: none;
+        }
+
+        .history {
+            display: flex;
+            justify-content: end;
+            margin-right: 16px;
+            margin-top: 16px;
+        }
+
+
+        /*History View*/
+        #HistoryView {
+            display: none;
+        }
+
+        .historyIcon {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            margin-right: 1px;
+        }
+
+        .container {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(29, 28, 27);
+            overflow: hidden;
+            min-height: 543px;
+            width: 282px;
+            border-radius: 50px;
+            outline: 1.5px outset rgb(228, 224, 224);
+            outline-offset: -3px;
+            margin-top: -15px;
+        }
+
+        .title {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            margin-left: 20px;
+            margin-top: -3px;
+        }
+
+        #item-list {
+            color: rgb(234, 232, 232);
+            font-size: 17px;
+            font-weight: bold;
+            list-style-type: none;
+            width: 100%;
+            margin-left: -32px;
+            margin-top: 10px;
+
+            max-height: 480.5px;
+            overflow-x: hidden;
+
+        }
+
+        #item-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        #item-list>li {
+            border-bottom: 2px solid rgb(171, 171, 171);
+            width: 90%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--To view the history, default won't show this-->
+    <div id="HistoryView">
+        <div class="container">
+            <div class="historyIcon" id="historyIcon">
+                <div class="title">
+                    History
+                </div>
+                <button id="icon1"><img
+                        src="https://flaticons.net/icon.php?slug_category=application&slug_icon=tab-history" width="25"
+                        height="25"></button>
+            </div>
+            <ul id="item-list">
+
+            </ul>
+        </div>
+    </div>
+
+    <div id="root">
+        <div class="history">
+            <button id="icon2"><img src="https://flaticons.net/icon.php?slug_category=application&slug_icon=tab-history"
+                    width="25" height="25"></button>
+        </div>
+        <div class="nothing">
+
+        </div>
+        <div class="formula" id="yesno">
+            <p id="previous"></p>
+        </div>
+
+        <div class="display">
+            <p id="number">0</p>
+        </div>
+
+        <div class="btnsContainer">
+
+            <table class="btns">
+                <tr>
+                    <td><button id="AC" class="cal-btns gray">AC</button></td>
+                    <td><button id="CE" class="cal-btns gray">C</button></td>
+                    <td><button id="%" class="cal-btns gray">%</button></td>
+                    <td><button id="/" class="cal-btns org">÷</button></td>
+                </tr>
+                <tr>
+                    <td><button id="7" class="cal-btns dgray">7</button></td>
+                    <td><button id="8" class="cal-btns dgray">8</button></td>
+                    <td><button id="9" class="cal-btns dgray">9</button></td>
+                    <td><button id="x" class="cal-btns org">×</button></td>
+                </tr>
+                <tr>
+                    <td><button id="4" class="cal-btns dgray">4</button></td>
+                    <td><button id="5" class="cal-btns dgray">5</button></td>
+                    <td><button id="6" class="cal-btns dgray">6</button></td>
+                    <td><button id="-" class="cal-btns org">-</button></td>
+                </tr>
+                <tr>
+                    <td><button id="1" class="cal-btns dgray">1</button></td>
+                    <td><button id="2" class="cal-btns dgray">2</button></td>
+                    <td><button id="3" class="cal-btns dgray">3</button></td>
+                    <td><button id="+" class="cal-btns org">+</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="0" class="cal-btns special dgray">0</button>
+                    </td>
+                    <td><button id="." class="cal-btns dgray">.</button></td>
+                    <td><button id="=" class="cal-btns org">=</button></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
