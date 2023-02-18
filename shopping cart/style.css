@@ -1,0 +1,23 @@
+* {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.inventory {
+    padding: 2rem;
+}
+
+table, th, td {
+    border: 2px solid #fff;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+button {
+    background-color: #858585;
+    border-radius: 20px;
+    width: 120px;
+    height: 35px;
+    cursor: pointer;
+}
