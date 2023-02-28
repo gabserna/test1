@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix 10x10</title>
+    <script>
+        var matriz = [];
+        for (var i = 0; i < 10; i++) {
+        matriz[i] = [];
+        for (var j = 0; j < 10; j++) {
+            matriz[i][j] = 0;
+        }
+        }
+
+        for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < 10; j++) {
+            var div = document.createElement("div");
+            div.className = "elemento";
+            div.textContent = matriz[i][j];
+            if (matriz[i][j] === 1) {
+            div.style.backgroundColor = "blue";
+            }
+            document.body.appendChild(div);
+        }
+        }
+
+    </script>
+    <style>
+        .main {
+            width: 60%;
+            margin: 0 auto;
+            height: 600px;
+        }
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td {
+        border: 1px solid black;
+        width: 8vh;
+        height: 3vw;
+        }
+
+        td:nth-child(1n+1) {
+        background-color: #f9dbbd;
+        }
+
+        td:nth-child(2n+1) {
+        background-color: #f4baba;
+        }
+
+        td:nth-child(3n+1) {
+        background-color: #e17b7b;
+        }
+
+        td:nth-child(4n+1) {
+        background-color: #d66262;
+        }
+
+        td:nth-child(5n+1) {
+        background-color: #c0392b;
+        }
+
+        td:nth-child(6n+1) {
+        background-color: #a32727;
+        }
+
+        td:nth-child(7n+1) {
+        background-color: #822727;
+        }
+
+        td:nth-child(8n+1) {
+        background-color: #661b1b;
+        }
+
+        td:nth-child(9n+1) {
+        background-color: #4d1313;
+        }
+
+        td:nth-child(10n+1) {
+        background-color: #330000;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+    <table>
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>
